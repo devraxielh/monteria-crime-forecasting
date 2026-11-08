@@ -1,0 +1,47 @@
+# Montería crime forecasting: exact versions used to produce every table and figure of the paper.
+# Python 3.14.3 (Windows 11). Install in a fresh virtual environment:
+#   python -m venv .venv
+#   .venv\Scripts\python -m pip install -r requirements.txt        (Windows)
+#   .venv/bin/python -m pip install -r requirements.txt            (Linux/macOS)
+# Reproduce everything: python -P scripts/run_all_experiments.py
+#
+# PyTorch: the results were produced with the CUDA 13.0 build on an NVIDIA RTX 4090. The line below makes pip
+# look for that build on the PyTorch index. Without an NVIDIA GPU, replace "torch==2.10.0+cu130" by
+# "torch==2.10.0"; the foundation models then run on the CPU (much slower, and their numbers may differ
+# slightly in the last decimals because GPU and CPU floating-point arithmetic differ).
+--extra-index-url https://download.pytorch.org/whl/cu130
+
+# Data handling
+numpy==2.5.4
+pandas==3.1.1
+pyarrow==26.0.1
+
+# Statistics and classical models
+scipy==1.18.1
+scikit-learn==1.9.1
+statsmodels==0.15.0
+patsy==1.0.3
+scikit-posthocs==0.17.1
+
+# Gradient boosting and explainability
+lightgbm==4.7.0
+shap==0.54.1
+
+# Time-series foundation models (Chronos-Bolt, Chronos-2, TimesFM-2.5, TiRex)
+torch==2.10.0+cu130
+chronos-forecasting==2.3.2
+timesfm[torch]==3.0.2
+tirex-ts==1.4.2
+transformers==5.22.2
+accelerate==1.15.0
+huggingface-hub==2.4.0
+safetensors==0.8.0
+einops==0.8.2
+
+# Calendar
+holidays==0.108
+
+# Figures
+matplotlib==3.11.2
+seaborn==0.13.2
+pillow==13.0.0
